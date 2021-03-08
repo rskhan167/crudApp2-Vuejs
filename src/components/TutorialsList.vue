@@ -5,7 +5,7 @@
 				<input type="text" class="form-control" placeholder="Search by Title"
 				v-model="title"/>
 				<div class="input-group-append">
-					<button class="btn btn-outline-secondary" type="button" @click="searchTitle">Search</button>
+					<button class="btn btn-outline-secondary" type="button" @click="searchTitle" @keyup.enter="searchTitle">Search</button>
 				</div>
 			</div>
 		</div>
@@ -34,10 +34,8 @@
 					<label><strong>Status:</strong></label> {{ currentTutorial.published ? "Published" : "Pending" }}
 				</div>
 
-<!-- 				<a class="badge badge-warning"
-				 :href="'/tutorials/' + currentTutorial.id">Edit</a> -->
-				 <button class="btn btn-outline-secondary"
-				 	:href="'/tutorials/' + currentTutorial.id">Edit</button>
+				<a class="btn btn-outline-secondary"
+				 	:href="'/tutorials/' + currentTutorial.id">Edit</a>
 			</div>
 			<div v-else>
 				<br />

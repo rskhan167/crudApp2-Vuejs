@@ -18,17 +18,17 @@
 			</div>
 		</form>
 
-		<button class="badge badge-primary mr-2" v-if="currentTutorial.published" 
-			@click="updatePublished(false)">UnPublish</button>
-		<button v-else class="badge badge-primary mr-2" @click="updatePublished(true)">Publish</button>
-		<button class="badge badge-danger mr-2" @click="deleteTutorial">Delete</button>
-		<button class="badge badge-success" @click="updateTutorial">Update</button>
+		<b-button class="badge badge-primary pb-2" v-if="currentTutorial.published" 
+			@click="updatePublished(false)" >UnPublish</b-button>
+		<b-button v-else class="badge badge-primary pb-2" variant="primary" @click="updatePublished(true)">Publish</b-button>
+		<b-button class="badge badge-danger pb-2" @click="deleteTutorial">Delete</b-button>
+		<b-button class="badge badge-secondary pb-2" @click="updateTutorial">Update</b-button>
 		<p>{{ message }}</p>
 	</div>
 
-	<div v-else>
+	<div v-else class="div-else">
 		<br />
-		<p>Please click on a Tutorial...</p>
+		<p>Tutorial not found!</p>
 	</div>
 </template>
 
@@ -95,12 +95,12 @@ export default {
          			console.log(e);
        	});
     },
-
-  	mounted() {
-  		this.message = '';
-  		this.getTutorial(this.$route.params.id);
-  	}
   },
+
+  mounted() {
+  	this.message = '';
+  	this.getTutorial(this.$route.params.id);
+  }
 };
 </script>
 
@@ -108,5 +108,16 @@ export default {
 .edit-form {
   max-width: 300px;
   margin: auto;
+}
+.div-else {
+  text-align: center;
+  margin-top: 100px;
+  text-transform: uppercase;
+}
+.badge {
+  margin: 8px;
+}
+b-button {
+  cursor: pointer;
 }
 </style>
